@@ -1,5 +1,5 @@
 <template>
-  <div class="col-xs-12 col-sm-6">
+  <div class="col-xs-12 col-sm-6" v-if="activeServer">
     <h4>Server #{{ activeServer.id }} Details</h4>
     <p>Status: {{activeServer.status }}</p>
     <button @click="changeStatus">Change Status</button>
@@ -10,7 +10,11 @@
 import { eventBus } from "../../main";
 
 export default {
-  props: ["activeServer"],
+  data() {
+    return {
+      activeServer: null
+    };
+  },
   methods: {
     changeStatus() {
       this.activeServer.status = "Normal";
@@ -33,8 +37,5 @@ div {
 h4 {
   border-bottom: 1px solid #ddd;
   padding: 2px 0 10px 0;
-}
-
-button {
 }
 </style>
