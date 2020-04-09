@@ -28,4 +28,8 @@ span {
 .red {
   color: red;
 }
+
+li {
+  cursor: pointer;
+}
 </style>
