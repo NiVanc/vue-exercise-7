@@ -1,13 +1,16 @@
 <template>
-  <li class="list-group-item">
-    Server #{{ serverId }}
-    <span :class="{red: serverStatus != 'Normal'}">{{ serverStatus }}</span>
+  <li class="list-group-item" @click="showServerDetails">
+    Server #{{ server.id }}
+    <span :class="{red: server.status != 'Normal'}">{{ server.status }}</span>
   </li>
 </template>
 
 <script>
 export default {
-  props: ["serverId", "serverStatus"]
+  props: ["server"],
+  methods: {
+    showServerDetails() {}
+  }
 };
 </script>
 
