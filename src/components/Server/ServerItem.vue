@@ -1,15 +1,19 @@
 <template>
-  <li class="list-group-item" @click="showServerDetails">
+  <li class="list-group-item" @click="selectServer">
     Server #{{ server.id }}
     <span :class="{red: server.status != 'Normal'}">{{ server.status }}</span>
   </li>
 </template>
 
 <script>
+import { eventBus } from "../../main";
+
 export default {
   props: ["server"],
   methods: {
-    showServerDetails() {}
+    selectServer() {
+      eventBus.selectServer(this.server);
+    }
   }
 };
 </script>
